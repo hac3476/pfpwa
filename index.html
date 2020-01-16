@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="A sample pwa app" />
+    <meta name="theme-color" content="#2F3BA2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetFinder</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.com/f4bc1f20-9bcc-4a54-b922-08b785a1e344%2Ffavicon.ico?v=1576189716632"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Weather PWA" />
+    <meta name="theme-color" content="#2F3BA2" />
+    <link rel="apple-touch-icon" href="/images/icons/icon-152x152.png" />
+  </head>
+
+  <body>
+    <div id="app-template">
+      <div class="grid-container">
+        <div id="filterSearch" class="hidden">
+          <div id="box">
+            <div id="screen">
+              <div id="everythingInBox">
+                <div id="options">
+                  <select
+                    aria-label="randomLabel"
+                    id="animal"
+                    class="categories"
+                  >
+                    <option value="dog" class="options">dog</option>
+                    <option value="cat" class="options">cat</option>
+                    <option value="bird" class="options">bird</option>
+                    <option value="rabbit" class="options">rabbit</option>
+                  </select>
+                  <select
+                    aria-label="randomLabel2"
+                    id="size"
+                    class="categories"
+                  >
+                    <option value="small" class="options">small</option>
+                    <option value="medium" class="options">medium</option>
+                    <option value="large" class="options">large</option>
+                    <option value="xlarge" class="options">xlarge</option>
+                  </select>
+                </div>
+                <div id="optButs">
+                  <button id="search" class="filterButs" onclick="cacheOrWeb()">
+                    Search!
+                  </button>
+                  <button
+                    id="cancel"
+                    class="filterButs"
+                    onclick="optionDisplay(2)"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header">
+          <div class="title">
+            <img
+              alt="logo"
+              src="https://cdn.glitch.com/bc0860c9-8f68-43ee-a6d7-d8735df47874%2Ficon120x120.png?v=1579039317725"
+              id="logo"
+            />
+            <span id="pf">
+              PetFinder
+            </span>
+          </div>
+          <div id="buts">
+            <button>
+              Previous Page
+            </button>
+            <img
+              id="butInstall"
+              src="https://cdn.glitch.com/bc0860c9-8f68-43ee-a6d7-d8735df47874%2Ficon120x120.png?v=1579039317725"
+            />
+            <button>
+              Next Page
+            </button>
+          </div>
+          <div id="filter">
+            <button id="filterBut" onclick="optionDisplay(1)">
+              Filter Search
+            </button>
+          </div>
+        </div>
+        <div class="first grid">
+          <div id="one" class="card hidden">
+            <h1 id="name">f</h1>
+            <div id="backup">
+              <img
+                id="picture"
+                alt="Potential Pet"
+                src="https://cdn.glitch.com/f4bc1f20-9bcc-4a54-b922-08b785a1e344%2FnoImage.svg?v=1576268287944"
+              />
+            </div>
+            <p id="breed"></p>
+            <p id="gender"></p>
+            <p id="location"></p>
+            <a id="url" href="https://www.petfinder.com/"></a>
+          </div>
+        </div>
+        <div class="second grid">
+          <div id="two" class="card hidden">
+            <h1 id="name2">f</h1>
+            <div id="backup2">
+              <img
+                id="picture2"
+                alt="Potential Pet"
+                src="https://cdn.glitch.com/f4bc1f20-9bcc-4a54-b922-08b785a1e344%2FnoImage.svg?v=1576268287944"
+              />
+            </div>
+            <p id="breed2"></p>
+            <p id="gender2"></p>
+            <p id="location2"></p>
+            <a id="url2" href="https://www.petfinder.com/"></a>
+          </div>
+        </div>
+        <div class="third grid">
+          <div id="three" class="card hidden">
+            <h1 id="name3">f</h1>
+            <div id="backup3">
+              <img
+                id="picture3"
+                alt="Potential Pet"
+                src="https://cdn.glitch.com/f4bc1f20-9bcc-4a54-b922-08b785a1e344%2FnoImage.svg?v=1576268287944"
+              />
+            </div>
+            <p id="breed3"></p>
+            <p id="gender3"></p>
+            <p id="location3"></p>
+            <a id="url3" href="https://www.petfinder.com/"></a>
+          </div>
+        </div>
+        <div class="fourth grid">
+          <div id="four" class="card hidden">
+            <h1 id="name4">f</h1>
+            <div id="backup4">
+              <img
+                id="picture4"
+                alt="Potential Pet"
+                src="https://cdn.glitch.com/f4bc1f20-9bcc-4a54-b922-08b785a1e344%2FnoImage.svg?v=1576268287944"
+              />
+            </div>
+            <p id="breed4"></p>
+            <p id="gender4"></p>
+            <p id="location4"></p>
+            <a id="url4" href="https://www.petfinder.com/"></a>
+          </div>
+        </div>
+        <div class="fifth grid">
+          <div id="five" class="card hidden">
+            <h1 id="name5">f</h1>
+            <div id="backup5">
+              <img
+                id="picture5"
+                alt="Potential Pet"
+                src="https://cdn.glitch.com/f4bc1f20-9bcc-4a54-b922-08b785a1e344%2FnoImage.svg?v=1576268287944"
+              />
+            </div>
+            <p id="breed5"></p>
+            <p id="gender5"></p>
+            <p id="location5"></p>
+            <a id="url5" href="https://www.petfinder.com/"></a>
+          </div>
+        </div>
+        <div class="sixth grid">
+          <div id="six" class="card hidden">
+            <h1 id="name6">f</h1>
+            <div id="backup6">
+              <img
+                id="picture6"
+                alt="Potential Pet"
+                src="https://cdn.glitch.com/f4bc1f20-9bcc-4a54-b922-08b785a1e344%2FnoImage.svg?v=1576268287944"
+              />
+            </div>
+            <p id="breed6"></p>
+            <p id="gender6"></p>
+            <p id="location6"></p>
+            <a id="url6" href="https://www.petfinder.com/"></a>
+          </div>
+        </div>
+        <div class="seventh grid">
+          <div id="seven" class="card hidden">
+            <h1 id="name7">f</h1>
+            <div id="backup7">
+              <img
+                id="picture7"
+                alt="Potential Pet"
+                src="https://cdn.glitch.com/f4bc1f20-9bcc-4a54-b922-08b785a1e344%2FnoImage.svg?v=1576268287944"
+              />
+            </div>
+            <p id="breed7"></p>
+            <p id="gender7"></p>
+            <p id="location7"></p>
+            <a id="url7" href="https://www.petfinder.com/"></a>
+          </div>
+        </div>
+        <div class="eighth grid">
+          <div id="eight" class="card hidden">
+            <h1 id="name8">f</h1>
+            <div id="backup8">
+              <img
+                id="picture8"
+                alt="Potential Pet"
+                src="https://cdn.glitch.com/f4bc1f20-9bcc-4a54-b922-08b785a1e344%2FnoImage.svg?v=1576268287944"
+              />
+            </div>
+            <p id="breed8"></p>
+            <p id="gender8"></p>
+            <p id="location8"></p>
+            <a id="url8" href="https://www.petfinder.com/"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="addServiceWorker.js"></script>
+    <script src="client.js"></script>
+    <script src="install.js"></script>
+  </body>
+</html>
